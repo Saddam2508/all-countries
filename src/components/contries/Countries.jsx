@@ -6,7 +6,7 @@ const Countries = ({ countryPromise }) => {
   const allCountries = allCountryData.data.countries;
   return (
     <div>
-      <div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {allCountries.map((country) => (
           <Country key={country.cca3.cca3} country={country} />
         ))}

@@ -11,10 +11,10 @@ const countryPromise = axios.get(
 function App() {
   return (
     <div className="w-11/12 mx-auto">
+      <Navbar />
       <Suspense
         fallback={<span className="loading loading-dots loading-xs"></span>}
       >
-        <Navbar />
         <Countries countryPromise={countryPromise} />
       </Suspense>
     </div>
