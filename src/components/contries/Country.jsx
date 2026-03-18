@@ -5,7 +5,7 @@ import axios from "axios";
 const Country = ({ country }) => {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(null);
-  console.log(details);
+  // console.log(details);
   const countryDescription = async (id) => {
     setOpen(!open);
     const res = await axios.get(
@@ -14,7 +14,6 @@ const Country = ({ country }) => {
     if (!details) {
       setDetails(res.data.countries);
     }
-    return "saddam";
   };
 
   return (
