@@ -49,9 +49,9 @@ const Navbar = ({ searchCountry }) => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Country List</a>
+        <a className="btn btn-ghost text-xl hidden md:flex">Country List</a>
       </div>
-      <div className="navbar-end flex">
+      <div className="navbar-end flex w-full">
         <div className="join">
           <div>
             <label className="input validator join-item">
@@ -59,6 +59,7 @@ const Navbar = ({ searchCountry }) => {
                 onInput={(e) => searchCountryValue(e.target.value)}
                 type="text"
                 placeholder="Enter your country name"
+                className="flex-1"
                 required
               />
             </label>
