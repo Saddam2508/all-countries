@@ -5,7 +5,6 @@ import axios from "axios";
 const Country = ({ country }) => {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(null);
-  // console.log(details);
   const countryDescription = async (id) => {
     setOpen(!open);
     const res = await axios.get(
@@ -14,6 +13,18 @@ const Country = ({ country }) => {
     if (!details) {
       setDetails(res.data.countries);
     }
+  };
+
+  const getCurrency = (currencies) => {
+    if (!currencies) return;
+    const key = Object.keys(currencies)[0];
+    const currency = currencies[key];
+    return `${currency.name} (${currency.symbol})`;
+  };
+
+  const getLanguage = (languages) => {
+    if (!languages) return;
+    return Object.values(languages).join(", ");
   };
 
   return (
@@ -39,9 +50,36 @@ const Country = ({ country }) => {
         details &&
         details.map((detail) => (
           <div key={detail.ccn3.ccn3}>
-            <h1>{detail.name.common}</h1>
-            <h2> Capital: {detail.capital.capital} </h2>
-            <p> Continents: {detail.continents.continents} </p>
+            <h1 className="text-lg pt-1">
+              <span className="font-bold"> Official name:</span>{" "}
+              {detail.name.official}{" "}
+            </h1>
+            <h2>
+              {" "}
+              <span className="font-bold">Capital:</span>{" "}
+              {detail.capital.capital}{" "}
+            </h2>
+            <p>
+              {" "}
+              <span className="font-bold">Continents:</span>{" "}
+              {detail.continents.continents}{" "}
+            </p>
+            <p>
+              {" "}
+              <span className="font-bold">Currencies:</span>{" "}
+              {getCurrency(detail.currencies.currencies)}{" "}
+            </p>
+            <p>
+              <span className="font-bold">Languages:</span>{" "}
+              {getLanguage(detail.languages.languages)}{" "}
+            </p>
+            <p>
+              <span className="font-bold">Population:</span>{" "}
+              {detail.population.population}{" "}
+            </p>
+            <p>
+              <span className="font-bold">Area:</span> {detail.area.area}{" "}
+            </p>
           </div>
         ))}
     </div>

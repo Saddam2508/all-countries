@@ -3,7 +3,7 @@ import Country from "./Country";
 import Navbar from "../navbar/Navbar";
 
 const Countries = ({ countryPromise }) => {
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState(null);
 
   const allCountryData = use(countryPromise);
   const allCountries = allCountryData.data.countries;
@@ -20,7 +20,7 @@ const Countries = ({ countryPromise }) => {
   return (
     <div>
       <Navbar searchCountry={searchCountry} />
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 pt-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 pt-5">
         {displayCountries.map((country) => (
           <Country key={country.cca3.cca3} country={country} />
         ))}
