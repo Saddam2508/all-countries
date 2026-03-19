@@ -12,7 +12,7 @@ function App() {
   const [search, setSearch] = useState("");
   return (
     <div className="w-11/12 mx-auto">
-      <Navbar searchCountry={setSearch} />
+      <Navbar setSearch={setSearch} />
       <Suspense
         fallback={<span className="loading loading-dots loading-xs"></span>}
       >
