@@ -1,8 +1,8 @@
 import React from "react";
 
-const Navbar = ({ searchCountry }) => {
+const Navbar = ({ setSearch }) => {
   const searchCountryValue = (value) => {
-    searchCountry(value);
+    setSearch(value);
   };
 
   return (
